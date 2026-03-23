@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Player : MotorEntity
 {
+    float currentXPos;
+    float lastXPos;
+
     void FixedUpdate()
     {
+        lastXPos = currentXPos;
+
         if (GameManager.gameState != GameState.playing) { return; }
         if (InputManager.xMovement != 0)
         {
@@ -35,9 +40,24 @@ public class Player : MotorEntity
         }
 
         var smoothedMovementFactor = motor.IsGrounded ? motor.groundDamping : motor.inAirDamping;
-        _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * motor.runSpeed, Time.fixedDeltaTime * smoothedMovementFactor);
+        //_velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * motor.runSpeed, Time.fixedDeltaTime * smoothedMovementFactor);
+        _velocity.x = motor.runSpeed;
         _velocity.y += motor.gravity * Time.fixedDeltaTime;
+
+
         motor.Move(_velocity * Time.fixedDeltaTime);
         _velocity = motor.velocity;
+
+        if (_velocity.x == 0) ResetEntity();
+    }
+
+    private void LateUpdate()
+    {
+        currentXPos = transform.position.x;
+        if (currentXPos == lastXPos)
+        {
+            print("Puto");
+            ResetEntity();
+        }
     }
 }

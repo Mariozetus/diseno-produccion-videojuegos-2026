@@ -17,7 +17,13 @@ public class EntityManager : MonoBehaviour
     {
         for (int i = 0; i < allEntities.Count; i++)
         {
-            allEntities[i].onReset.Invoke();
+            try
+            {
+                allEntities[i].onReset.Invoke();
+            } catch (System.Exception)
+            {
+
+            }
         }
     }
 }

@@ -12,5 +12,5 @@ public abstract class Entity : MonoBehaviour
         onReset += ResetEntity;
     }
 
-    protected abstract void ResetEntity();
+    public abstract void ResetEntity();
 }

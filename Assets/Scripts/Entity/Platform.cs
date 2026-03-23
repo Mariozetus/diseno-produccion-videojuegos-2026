@@ -34,7 +34,7 @@ public class Platform : MoveableEntity
 
         transform.position += velocity * Time.fixedDeltaTime;
     }
-    protected override void ResetEntity()
+    public override void ResetEntity()
     {
         base.ResetEntity();
         index = 0;

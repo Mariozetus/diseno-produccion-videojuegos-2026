@@ -42,7 +42,7 @@ public class MovementMotor : MonoBehaviour
     }
 
     public event Action<RaycastHit2D> onControllerCollidedEvent;
-    public float gravity = -25f;
+    public float gravity = -40f;
     public float runSpeed = 8f;
     public float groundDamping = 20f;
     public float inAirDamping = 5f;

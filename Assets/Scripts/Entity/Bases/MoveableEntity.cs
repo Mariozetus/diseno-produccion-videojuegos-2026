@@ -12,7 +12,7 @@ public class MoveableEntity : Entity
         startPosition = transform.position;
     }
 
-    protected override void ResetEntity()
+    public override void ResetEntity()
     {
         transform.position = startPosition;
     }
