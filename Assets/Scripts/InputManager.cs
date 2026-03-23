@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     public static float jump;
     public static float xMovement;
+    public static bool dashPressed;
 
     private void Update()
     {
         jump = Input.GetAxis("Jump");
         xMovement = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            dashPressed = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
