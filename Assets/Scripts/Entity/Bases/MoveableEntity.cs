@@ -16,6 +16,7 @@ public class MoveableEntity : Entity
 
     protected override void ResetEntity()
     {
+        transform.rotation = Quaternion.Euler(startRotation);
         transform.position = startPosition;
         transform.rotation = Quaternion.Euler(startRotation);
     }

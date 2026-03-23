@@ -8993,6 +8993,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2219668680315287651, guid: b80ba7db3244d444eac831744e61fa50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4248451386494234466}
+    - targetCorrespondingSourceObject: {fileID: 2219668680315287651, guid: b80ba7db3244d444eac831744e61fa50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4248451386494234473}
   m_SourcePrefab: {fileID: 100100000, guid: b80ba7db3244d444eac831744e61fa50, type: 3}
 --- !u!114 &1199297677468019469 stripped
 MonoBehaviour:
@@ -9025,6 +9028,18 @@ MonoBehaviour:
   mapRoot: {fileID: 1547113029}
   heroTransform: {fileID: 4248451386494234459}
   rotationSpeed: 45
+--- !u!114 &4248451386494234473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159361146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463d7d388aa352b458f6541050d5c648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveableEntity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

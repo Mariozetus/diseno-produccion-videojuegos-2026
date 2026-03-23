@@ -19,7 +19,9 @@ public class RespawnSystem : MonoBehaviour
         {
             lostPanel.SetActive(false);
             entityManager.ResetAll();
+            entityManager.ResetAll();
             GameManager.gameState = GameState.playing;
+            
         }
     }
 
