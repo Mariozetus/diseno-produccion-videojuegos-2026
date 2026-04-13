@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MotorEntity
 {
-    [SerializeField] float terminalVelocity = 75f;
+    float terminalVelocity = 750f;
 
     void FixedUpdate()
     {
@@ -39,9 +39,9 @@ public class Player : MotorEntity
         var smoothedMovementFactor = motor.IsGrounded ? motor.groundDamping : motor.inAirDamping;
         _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * motor.runSpeed, Time.fixedDeltaTime * smoothedMovementFactor);
         _velocity.y += motor.gravity * Time.fixedDeltaTime;
-        _velocity.y = Mathf.Max(_velocity.y, -terminalVelocity);
         motor.Move(_velocity * Time.fixedDeltaTime);
         _velocity = motor.velocity;
+        _velocity.y = Mathf.Max(_velocity.y, -terminalVelocity);
     }
 
     protected override void ResetEntity()
