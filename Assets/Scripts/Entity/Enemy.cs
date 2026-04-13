@@ -12,6 +12,11 @@ public class Enemy : MotorEntity
     protected override void Start()
     {
         base.Start();
+        if(GetComponent<EnemyHealth>() == null)
+        {
+            gameObject.AddComponent<EnemyHealth>();
+        }
+
         if(movementPoints.Length == 0) { gameObject.SetActive(false); }
     }
 
@@ -32,7 +37,7 @@ public class Enemy : MotorEntity
 
         var smoothedMovementFactor = motor.IsGrounded ? motor.groundDamping : motor.inAirDamping;
         _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * motor.runSpeed, Time.fixedDeltaTime * smoothedMovementFactor);
-        _velocity.y += motor.gravity * Time.fixedDeltaTime;
+        _velocity.y += EffectiveGravity * Time.fixedDeltaTime;
         motor.Move(_velocity * Time.fixedDeltaTime);
         _velocity = motor.velocity;
     }
@@ -41,5 +46,6 @@ public class Enemy : MotorEntity
     {
         base.ResetEntity();
         index = 0;
+        gameObject.SetActive(true);
     }
 }
