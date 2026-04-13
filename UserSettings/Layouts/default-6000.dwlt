@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1680
     height: 1029.3334
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -198,14 +198,14 @@ MonoBehaviour:
     y: 0
     width: 704
     height: 382.00006
-  m_MinSize: {x: 101, y: 126}
-  m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 231, y: 276}
+  m_MaxSize: {x: 10001, y: 10026}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -618,9 +618,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 690.6667
-    width: 1115
-    height: 335.33337
+    y: 670
+    width: 703
+    height: 356.00006
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Entity
+    - Assets/Material
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Entity
+  - Assets/Material
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\Dmitrii\\Documents\\Dise\xF1oVJ\\Taller U-Tad\\Taller
     U-Tad"
@@ -665,13 +665,15 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 35780
+    - m_Data: 35022
     m_LastClickedID:
-      m_Data: 35780
+      m_Data: 35022
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 34222
     - m_Data: 34224
+    - m_Data: 35000
+    - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -733,8 +735,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -13552
-    m_LastClickedInstanceID: -13552
+    - m_Data: -1352
+    m_LastClickedInstanceID: -1352
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
@@ -859,12 +861,15 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: -1302
+      - m_Data: -1352
       m_LastClickedID:
-        m_Data: -1302
+        m_Data: -1352
       m_ExpandedIDs:
       - m_Data: -1284
+      - m_Data: 33724
       - m_Data: 33766
+      - m_Data: 33774
+      - m_Data: 33976
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1429,9 +1434,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -30.289213, y: 10.168704, z: -0.49098936}
+    m_Target: {x: -21.82115, y: 6.8935404, z: -0.15800424}
     speed: 2
-    m_Value: {x: -29.21244, y: 10.182163, z: -0.46926573}
+    m_Value: {x: -21.933298, y: 7.1829224, z: -0.16608489}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1481,9 +1486,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 50.447685
+    m_Target: 17.148987
     speed: 2
-    m_Value: 48.275295
+    m_Value: 17.957054
   m_Ortho:
     m_Target: 1
     speed: 2
