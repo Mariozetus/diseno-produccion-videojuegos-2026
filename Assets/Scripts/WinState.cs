@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WinState : MonoBehaviour
@@ -23,7 +21,7 @@ public class WinState : MonoBehaviour
 
     public void OnCollide(RaycastHit2D hit)
     {
-        if(hit.collider.gameObject.layer == LayerMask.NameToLayer(layerForDamageCheck))
+        if(hit.collider.gameObject.layer == LayerMask.NameToLayer(layerForDamageCheck) && GameManager.instance.AllFlagsCollected())
         {
             OnPlayerWin();
         }
