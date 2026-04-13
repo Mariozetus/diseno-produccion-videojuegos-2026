@@ -5,7 +5,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEditor;
 
-public class Health : MonoBehaviour
+public class HealthRubi : MonoBehaviour
 {
     [SerializeField] MotorEntity myEntity;
     public float healthMax = 100;
@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
     }
 }
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
 [CustomEditor(typeof(Health))]
 public class HealthEditor : Editor
 {
@@ -61,3 +61,4 @@ public class HealthEditor : Editor
     }
 }
 #endif
+*/
