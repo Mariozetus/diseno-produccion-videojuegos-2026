@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : MotorEntity
 {
+    [SerializeField] float terminalVelocity = 75f;
+
     void FixedUpdate()
     {
         if (GameManager.gameState != GameState.playing) { return; }
@@ -37,7 +39,14 @@ public class Player : MotorEntity
         var smoothedMovementFactor = motor.IsGrounded ? motor.groundDamping : motor.inAirDamping;
         _velocity.x = Mathf.Lerp(_velocity.x, normalizedHorizontalSpeed * motor.runSpeed, Time.fixedDeltaTime * smoothedMovementFactor);
         _velocity.y += motor.gravity * Time.fixedDeltaTime;
+        _velocity.y = Mathf.Max(_velocity.y, -terminalVelocity);
         motor.Move(_velocity * Time.fixedDeltaTime);
         _velocity = motor.velocity;
+    }
+
+    protected override void ResetEntity()
+    {
+        base.ResetEntity();
+        _velocity = Vector3.zero;
     }
 }
