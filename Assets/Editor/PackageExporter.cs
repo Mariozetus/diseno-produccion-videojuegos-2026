@@ -1,27 +1,44 @@
 using UnityEditor;
 using System;
-using System.Linq;
+using System.IO;
 
 public class PackageExporter
 {
     public static void Export()
     {
-        string[] args = Environment.GetCommandLineArgs();
-        
-        int sceneIdx = Array.IndexOf(args, "-scenePath") + 1; // Nombre escena
-        int outputIdx = Array.IndexOf(args, "-outputName") + 1; // Nombre paquete
-
-        if (sceneIdx > 0 && outputIdx > 0)
+        try 
         {
-            string assetPath = args[sceneIdx];
-            string fileName = args[outputIdx];
+            string[] args = Environment.GetCommandLineArgs();
+            string scenePath = "";
+            string outputPath = "";
 
-            UnityEngine.Debug.Log($"Exportando: {assetPath} hacia {fileName}...");
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] == "-scenePath") scenePath = args[i + 1];
+                if (args[i] == "-outputName") outputPath = args[i + 1];
+            }
 
-            AssetDatabase.ExportPackage(assetPath, fileName, 
-                ExportPackageOptions.IncludeDependencies | ExportPackageOptions.Recurse);
+            if (string.IsNullOrEmpty(scenePath) || string.IsNullOrEmpty(outputPath))
+            {
+                Console.WriteLine("ERROR: Argumentos insuficientes.");
+                EditorApplication.Exit(1);
+            }
+
+            string dir = Path.GetDirectoryName(outputPath);
+            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir)) Directory.CreateDirectory(dir);
+
+            Console.WriteLine($"Iniciando exportación de: {scenePath}");
             
-            UnityEngine.Debug.Log("¡Exportación completada con éxito!");
+            AssetDatabase.ExportPackage(scenePath, outputPath, 
+                ExportPackageOptions.IncludeDependencies | ExportPackageOptions.Recurse);
+
+            Console.WriteLine("Exportación finalizada con éxito.");
+            EditorApplication.Exit(0);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR FATAL: {e.Message}");
+            EditorApplication.Exit(1);
         }
     }
 }
