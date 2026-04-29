@@ -1,6 +1,7 @@
 using UnityEditor;
 using System;
 using System.IO;
+using System.Linq;
 
 public class PackageExporter
 {
@@ -9,35 +10,33 @@ public class PackageExporter
         try 
         {
             string[] args = Environment.GetCommandLineArgs();
-            string scenePath = "";
+            string scenePathArg = "";
             string outputPath = "";
 
             for (int i = 0; i < args.Length; i++)
             {
-                if (args[i] == "-scenePath") scenePath = args[i + 1];
+                if (args[i] == "-scenePath") scenePathArg = args[i + 1];
                 if (args[i] == "-outputName") outputPath = args[i + 1];
             }
 
-            if (string.IsNullOrEmpty(scenePath) || string.IsNullOrEmpty(outputPath))
+            if (string.IsNullOrEmpty(scenePathArg) || string.IsNullOrEmpty(outputPath))
             {
-                Console.WriteLine("ERROR: Argumentos insuficientes.");
                 EditorApplication.Exit(1);
             }
+
+            string[] scenes = scenePathArg.Split(',');
 
             string dir = Path.GetDirectoryName(outputPath);
             if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
-            Console.WriteLine($"Iniciando exportación de: {scenePath}");
-            
-            AssetDatabase.ExportPackage(scenePath, outputPath, 
+            // Exportamos todas las escenas encontradas en un solo paquete
+            AssetDatabase.ExportPackage(scenes, outputPath, 
                 ExportPackageOptions.IncludeDependencies | ExportPackageOptions.Recurse);
 
-            Console.WriteLine("Exportación finalizada con éxito.");
             EditorApplication.Exit(0);
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            Console.WriteLine($"ERROR FATAL: {e.Message}");
             EditorApplication.Exit(1);
         }
     }
