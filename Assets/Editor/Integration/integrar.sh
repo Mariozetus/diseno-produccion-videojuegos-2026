@@ -168,6 +168,18 @@ for BRANCH in "${BRANCH_ARRAY[@]}"; do
         continue
     fi
 
+    if [ ! -d "Assets/Editor/Integration" ]; then
+        log_info "Trayendo Integration Engine desde $MAIN_BRANCH..."
+        mkdir -p "Assets/Editor/Integration"
+        git checkout "$MAIN_BRANCH" -- "Assets/Editor/Integration/" 2>/dev/null
+        if [ ! -f "Assets/Editor/Integration/IntegrationEngine.cs" ]; then
+            log_error "No se pudo traer IntegrationEngine desde $MAIN_BRANCH"
+            git checkout "$MAIN_BRANCH" 2>/dev/null
+            continue
+        fi
+        git checkout "$BRANCH" 2>/dev/null
+    fi
+
     echo -e "\033[1;33mEscenas encontradas:\033[0m"
     for i in "${!SCENE_ARRAY[@]}"; do
         SIZE=$(du -h "${SCENE_ARRAY[$i]}" 2>/dev/null | cut -f1 || echo "unknown")
